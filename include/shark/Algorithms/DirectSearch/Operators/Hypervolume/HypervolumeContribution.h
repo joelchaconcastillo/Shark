@@ -131,18 +131,27 @@ struct HypervolumeContribution {
 	template<class Set>
 	std::vector<KeyValuePair<double,std::size_t> > smallest(Set const& points, std::size_t k)const{
 		SHARK_RUNTIME_CHECK(points.size() >= k, "There must be at least k points in the set");
-		std::size_t numObjectives = points[0].size();
+
+	 //	//In the Author's code (an the original paper in section 2.3.1) the reference point is defined as max(obj)+1
+		std::size_t numObjectives = points[0].size(), npoints=points.size();
+		RealVector ref(numObjectives, DBL_MIN);
+		  for(int j = 0; j < numObjectives; j++)
+	 	  {
+	            for(int i = 0; i <npoints; i++)
+			ref[j] = std::max(ref[j], points[i][j]);
+			ref[j] +=1.0;
+		  }
 		if(numObjectives == 2){
 			HypervolumeContribution2D algorithm;
-			return algorithm.smallest(points, k);
+			return algorithm.smallest(points, k, ref);
 		}else if(numObjectives == 3){
 			HypervolumeContribution3D algorithm;
-			return algorithm.smallest(points, k);
+			return algorithm.smallest(points, k, ref);
 		}else if(m_useApproximation){
-			return m_approximationAlgorithm.smallest(points, k);
+			return m_approximationAlgorithm.smallest(points, k, ref);
 		}else{
 			HypervolumeContributionMD algorithm;
-			return algorithm.smallest(points, k);
+			return algorithm.smallest(points, k, ref);
 		}
 	}
 	
