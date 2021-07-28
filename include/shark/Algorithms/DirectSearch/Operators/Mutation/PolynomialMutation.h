@@ -66,21 +66,38 @@ namespace shark {
 					if( point[i] < m_lower( i ) || point[i] > m_upper( i ) ) { 
 						point[i] = random::uni(rng,m_lower(i),m_upper(i));
 					} else {
-						// Calculate normalized distance from boundaries
-						double delta1 = (m_upper( i ) - point[i]) / (m_upper( i ) - m_lower( i ));
-						double delta2 = (point[i] - m_lower( i ) ) / (m_upper( i ) - m_lower( i ));
+		//				// Calculate normalized distance from boundaries
+		//				double delta1 = (m_upper( i ) - point[i]) / (m_upper( i ) - m_lower( i ));
+		//				double delta2 = (point[i] - m_lower( i ) ) / (m_upper( i ) - m_lower( i ));
+		//				
+		//				//compute change in delta
+		//				double deltaQ=0;
+		//				double u = random::uni(rng,0,1);
+		//				if( u <= .5 ) {
+		//					double delta = std::pow(delta1 , m_nm + 1.);
+		//					deltaQ =  2.0 * u + (1.0 - 2.0 * u) * delta;
+		//					deltaQ = std::pow(deltaQ, 1.0/(m_nm+1.0)) - 1. ;
+		//				} else {
+		//					double delta = std::pow(delta2 , m_nm + 1.);
+		//					deltaQ = 2 * (1- u) + 2. * (u  - .5) * delta;
+		//					deltaQ = 1. - std::pow(deltaQ , 1.0/(m_nm+1.0));
+		//				}
+				//Although the previous code is equivalent than the official one, I prefer to put exactly the same code that belongs to the official code in Deb's implementation
+						double delta1 = (point[i] - m_lower( i ) ) / (m_upper( i ) - m_lower( i ));
+						double delta2 = (m_upper( i ) - point[i]) / (m_upper( i ) - m_lower( i ));
 						
 						//compute change in delta
 						double deltaQ=0;
 						double u = random::uni(rng,0,1);
+						double mut_pow=1.0/(m_nm+1.0);
 						if( u <= .5 ) {
-							double delta = std::pow(delta1 , m_nm + 1.);
-							deltaQ =  2.0 * u + (1.0 - 2.0 * u) * delta;
-							deltaQ = std::pow(deltaQ, 1.0/(m_nm+1.0)) - 1. ;
+							double xy = 1.0-delta1;
+							double val = 2.0 * u + (1.0 - 2.0 * u) * std::pow(xy, (m_nm+1.0));
+							deltaQ = std::pow(val, mut_pow)-1.0;
 						} else {
-							double delta = std::pow(delta2 , m_nm + 1.);
-							deltaQ = 2 * (1- u) + 2. * (u  - .5) * delta;
-							deltaQ = 1. - std::pow(deltaQ , 1.0/(m_nm+1.0));
+							double xy = 1.0-delta2;
+							double val = 2.0*(1.0-u)+2.0*(u-0.5)*std::pow(xy,(m_nm+1.0));
+                					deltaQ = 1.0 - (std::pow(val,mut_pow));
 						}
 
 						point[i] += deltaQ * (m_upper( i ) - m_lower( i ) );

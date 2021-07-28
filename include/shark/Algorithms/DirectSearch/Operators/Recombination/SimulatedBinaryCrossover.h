@@ -82,12 +82,12 @@ namespace shark {
 				if( std::abs(y2 - y1) < 1E-7 )continue;//equal
 				
 				// Find beta value2
-				double beta1 = 1 + 2 * (y1 - m_lower( i )) / (y2 - y1);
-				double beta2 = 1 + 2 * (m_upper( i ) - y2) / (y2 - y1);
-				double expp = m_nc + 1.;
+				double beta1 = 1.0 + 2.0 * (y1 - m_lower( i )) / (y2 - y1);
+				double beta2 = 1.0 + 2.0 * (m_upper( i ) - y2) / (y2 - y1);
+				double expp = m_nc + 1.0;
 				// Find alpha
-				double alpha1 = 2. - std::pow(beta1 , -expp);
-				double alpha2 = 2. - std::pow(beta2 , -expp);
+				double alpha1 = 2.0 - std::pow(beta1 , -expp);
+				double alpha2 = 2.0 - std::pow(beta2 , -expp);
 
 				double u = random::uni(rng, 0., 1. );
 				alpha1 *=u;

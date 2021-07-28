@@ -24,6 +24,7 @@
  * along with Shark.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+//#include <shark/ObjectiveFunctions/Benchmarks/cec09.h>
 #include <shark/ObjectiveFunctions/Benchmarks/ZDT6.h>
 #include <shark/ObjectiveFunctions/Benchmarks/ZDT4.h>
 #include <shark/ObjectiveFunctions/Benchmarks/ZDT3.h>
@@ -65,7 +66,16 @@
 #include <shark/ObjectiveFunctions/Benchmarks/CigarDiscus.h>
 #include <shark/ObjectiveFunctions/Benchmarks/Cigar.h>
 #include <shark/ObjectiveFunctions/Benchmarks/Ackley.h>
-
+#include <shark/ObjectiveFunctions/Benchmarks/UF1.h>
+//#include <shark/ObjectiveFunctions/Benchmarks/UF2.h>
+//#include <shark/ObjectiveFunctions/Benchmarks/UF3.h>
+//#include <shark/ObjectiveFunctions/Benchmarks/UF4.h>
+//#include <shark/ObjectiveFunctions/Benchmarks/UF5.h>
+//#include <shark/ObjectiveFunctions/Benchmarks/UF6.h>
+//#include <shark/ObjectiveFunctions/Benchmarks/UF7.h>
+//#include <shark/ObjectiveFunctions/Benchmarks/UF8.h>
+//#include <shark/ObjectiveFunctions/Benchmarks/UF9.h>
+//#include <shark/ObjectiveFunctions/Benchmarks/UF10.h>
 
 /// \defgroup benchmarks Benchmark functions
 /// \ingroup objfunctions

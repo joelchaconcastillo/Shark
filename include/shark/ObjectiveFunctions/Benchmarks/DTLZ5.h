@@ -94,25 +94,35 @@ struct DTLZ5 : public MultiObjectiveFunction
 		std::size_t k = numberOfVariables() - numberOfObjectives() + 1 ;
 		double g = 0.0 ;
 
-		for (std::size_t i = numberOfVariables() - k + 1; i <= numberOfVariables(); i++)
+//		for (std::size_t i = numberOfVariables() - k + 1; i <= numberOfVariables(); i++)
+//			g += sqr( x(i-1) - 0.5 );
+		for (std::size_t i = numberOfVariables() - k ; i < numberOfVariables(); i++)
 			g += sqr( x(i-1) - 0.5 );
 
-		double t = M_PI  / (4 * (1 + g));
+		double t = M_PI  / (4.0 * (1.0 + g));
 
-		phi[0] = x( 0 ) * M_PI / 2;
-		for (std::size_t i = 2; i <= (numberOfObjectives() - 1); i++)
-			phi[i-1] = t * (1 + 2 * g * x( i-1 ) );
+		phi[0] = x( 0 ) * M_PI / 2.0;
+//		for (std::size_t i = 2; i <= (numberOfObjectives() - 1); i++)
+//			phi[i-1] = t * (1.0 + 2.0 * g * x( i-1 ) );
+		for (std::size_t i = 1; i < (numberOfObjectives() - 1); i++)
+			phi[i] = t * (1.0 + 2.0 * g * x(i) );
 
-		for (std::size_t i = 1; i <= numberOfObjectives(); i++) {
-			double f = (1 + g);
+		//for (std::size_t i = 1; i <= numberOfObjectives(); i++) {
+		for (std::size_t i = 0; i < numberOfObjectives(); i++) {
+			double f = (1.0 + g);
 
-			for (std::size_t j = numberOfObjectives() - i; j >= 1; j--)
-				f *= std::cos(phi[j-1]);
+			//for (std::size_t j = numberOfObjectives() - i; j >= 1; j--)
+//				f *= std::cos(phi[j-1]);
+			for (std::size_t j = 0; j < numberOfObjectives() -i-1; j++)
+				f *= std::cos(phi[j]);
 
-			if (i > 1)
-				f *= std::sin(phi[( numberOfObjectives() - i + 1 ) - 1]);
+//			if (i > 1)
+//				f *= std::sin(phi[( numberOfObjectives() - i + 1 ) - 1]);
+			if (i > 0)
+				f *= std::sin(phi[numberOfObjectives() - i - 1]);
 
-			value[i-1] = f ;
+//			value[i-1] = f ;
+			value[i] = f ;
 		}
 
 		return value;

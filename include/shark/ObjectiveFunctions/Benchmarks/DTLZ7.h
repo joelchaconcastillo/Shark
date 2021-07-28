@@ -91,17 +91,22 @@ struct DTLZ7 : public MultiObjectiveFunction
 
 		std::size_t k = numberOfVariables() - numberOfObjectives() + 1 ;
 		double g = 0.0 ;
-		for (std::size_t i = numberOfVariables() - k + 1; i <= numberOfVariables(); i++)
-			g += x(i-1);
+//		for (std::size_t i = numberOfVariables() - k + 1; i <= numberOfVariables(); i++)
+//			g += x(i-1);
+		for (std::size_t i = numberOfVariables() - k; i < numberOfVariables(); i++)
+			g += x(i);
 
-		g = 1 + 9 * g / k;
+
+		g = 1.0 + 9.0 * g / k;
 
 		for (std::size_t i = 0; i != numberOfObjectives(); i++)
 			value[i] = x(i);
 
 		double h = 0.0 ;
-		for (std::size_t j = 1; j <= numberOfObjectives() - 1; j++)
-			h += x(j-1) / (1 + g) * ( 1 + std::sin( 3 * M_PI * x(j-1) ) );
+//		for (std::size_t j = 1; j <= numberOfObjectives() - 1; j++)
+//			h += x(j-1) / (1 + g) * ( 1 + std::sin( 3 * M_PI * x(j-1) ) );
+		for (std::size_t j = 0; j < numberOfObjectives() - 1; j++)
+			h += x(j) / (1.0 + g) * ( 1.0 + std::sin( 3.0 * M_PI * x(j) ) );
 
 		h = numberOfObjectives() - h ;
 

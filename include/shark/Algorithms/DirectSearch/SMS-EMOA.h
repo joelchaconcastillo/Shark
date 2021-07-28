@@ -74,7 +74,7 @@ public:
 	double crossoverProbability()const{
 		return m_crossoverProbability;
 	}
-	
+        	
 	double nm()const{
 		return m_mutator.m_nm;
 	}
@@ -90,6 +90,18 @@ public:
 	unsigned int& mu(){
 		return m_mu;
 	}
+	double & crossoverProbability(){
+		return m_crossoverProbability;
+	}
+        	
+	double & nm(){
+		return m_mutator.m_nm;
+	}
+	
+	double & nc(){
+		return m_crossover.m_nc;
+	}
+
 	
 	std::size_t numInitPoints() const{
 		return m_mu;

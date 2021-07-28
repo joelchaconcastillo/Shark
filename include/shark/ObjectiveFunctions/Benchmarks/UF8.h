@@ -2,7 +2,7 @@
 /*!
  * 
  *
- * \brief       Objective function DTLZ4
+ * \brief       Objective function UF8
  * 
  * 
  *
@@ -31,31 +31,33 @@
  *
  */
 //===========================================================================
-#ifndef SHARK_OBJECTIVEFUNCTIONS_BENCHMARK_DTLZ4_H
-#define SHARK_OBJECTIVEFUNCTIONS_BENCHMARK_DTLZ4_H
+#ifndef SHARK_OBJECTIVEFUNCTIONS_BENCHMARK_UF8_H
+#define SHARK_OBJECTIVEFUNCTIONS_BENCHMARK_UF8_H
 
 #include <shark/ObjectiveFunctions/AbstractObjectiveFunction.h>
 #include <shark/ObjectiveFunctions/BoxConstraintHandler.h>
+#include <shark/ObjectiveFunctions/Benchmarks/cec09.h>
 
 namespace shark {namespace benchmarks{
+
 /**
- * \brief Implements the benchmark function DTLZ4.
- *
- * See: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.18.7531&rep=rep1&type=pdf 
- * The benchmark function exposes the following features:
- *	- Scalable w.r.t. the searchspace and w.r.t. the objective space.
- *	- Highly multi-modal.
+* \brief Implements the benchmark function UF8.
+*
+* See: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.18.7531&rep=rep1&type=pdf
+* The benchmark function exposes the following features:
+*	- Scalable w.r.t. the searchspace and w.r.t. the objective space.
+*	- Highly multi-modal.
 * \ingroup benchmarks
- */
-struct DTLZ4 : public MultiObjectiveFunction
+*/
+struct UF8 : public MultiObjectiveFunction
 {
-	DTLZ4(std::size_t numVariables = 0) : m_objectives(2), m_handler(SearchPointType(numVariables,0),SearchPointType(numVariables,1) ){
+	UF8(std::size_t numVariables = 0) : m_objectives(3), m_handler(numVariables,0,1 ){
 		announceConstraintHandler(&m_handler);
 	}
 
 	/// \brief From INameable: return the class name.
 	std::string name() const
-	{ return "DTLZ4"; }
+	{ return "UF8"; }
 
 	std::size_t numberOfObjectives()const{
 		return m_objectives;
@@ -63,9 +65,11 @@ struct DTLZ4 : public MultiObjectiveFunction
 	bool hasScalableObjectives()const{
 		return true;
 	}
+	
 	void setNumberOfObjectives( std::size_t numberOfObjectives ){
 		m_objectives = numberOfObjectives;
 	}
+	
 	
 	std::size_t numberOfVariables()const{
 		return m_handler.dimensions();
@@ -75,43 +79,29 @@ struct DTLZ4 : public MultiObjectiveFunction
 		return true;
 	}
 
-	/// \brief Adjusts the number of variables if the function is scalable.
-	/// \param [in] numberOfVariables The new dimension.
 	void setNumberOfVariables( std::size_t numberOfVariables ){
-		m_handler.setBounds(
-			SearchPointType(numberOfVariables,0),
-			SearchPointType(numberOfVariables,1)
-		);
-	}
+		SearchPointType lb(numberOfVariables,-2);
+		SearchPointType ub(numberOfVariables, 2);
+		lb(0)=0;
+		ub(0)=1;
+		lb(1)=0;
+		ub(1)=1;
 
+		m_handler.setBounds(lb, ub);
+	}
 	ResultType eval( const SearchPointType & x ) const {
 		m_evaluationCounter++;
 
 		ResultType value( numberOfObjectives() );
-
-		//const double alpha = 10.;
-		 const double alpha = 100.; //original, but numerically extremely difficult
-		
-		std::size_t k = numberOfVariables() - numberOfObjectives() + 1 ;
-		double g = 0.0;
-		for( std::size_t i = numberOfVariables() - k; i < numberOfVariables(); i++ )
-			g += sqr( x( i ) - 0.5);
-
-		for (std::size_t i = 0; i < numberOfObjectives(); i++) {
-			value[i] = 1.0+g;
-			for( std::size_t j = 0; j < numberOfObjectives() - i -1; ++j)
-				value[i] *= std::cos(std::pow(x( j ),alpha) * M_PI / 2.0);
-
-			if (i > 0)
-				value[i] *= std::sin(std::pow(x(numberOfObjectives() - i -1),alpha) * M_PI / 2.0);
-		}
+		CEC09::UF8(&(*(x.begin())), &(*(value.begin())), numberOfVariables());
 		return value;
 	}
-    
 private:
 	std::size_t m_objectives;
 	BoxConstraintHandler<SearchPointType> m_handler;
+	
 };
 
 }}
+
 #endif
