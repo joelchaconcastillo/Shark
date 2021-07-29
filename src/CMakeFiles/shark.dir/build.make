@@ -434,9 +434,113 @@ src/CMakeFiles/shark.dir/Models/RBFLayer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shark.dir/Models/RBFLayer.cpp.s"
 	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joel/myshark/Shark/src/Models/RBFLayer.cpp -o CMakeFiles/shark.dir/Models/RBFLayer.cpp.s
 
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp.o: src/CMakeFiles/shark.dir/flags.make
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp.o: src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp.o"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp.o -c /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp.i"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp > CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp.i
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp.s"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp.s
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp.o: src/CMakeFiles/shark.dir/flags.make
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp.o: src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp.o"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp.o -c /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp.i"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp > CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp.i
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp.s"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp.s
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp.o: src/CMakeFiles/shark.dir/flags.make
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp.o: src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp.o"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp.o -c /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp.i"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp > CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp.i
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp.s"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp.s
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp.o: src/CMakeFiles/shark.dir/flags.make
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp.o: src/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp.o"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp.o -c /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp.i"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp > CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp.i
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp.s"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp.s
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp.o: src/CMakeFiles/shark.dir/flags.make
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp.o: src/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp.o"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp.o -c /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp.i"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp > CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp.i
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp.s"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp.s
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp.o: src/CMakeFiles/shark.dir/flags.make
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp.o: src/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp.o"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp.o -c /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp.i"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp > CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp.i
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp.s"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp.s
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp.o: src/CMakeFiles/shark.dir/flags.make
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp.o: src/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp.o"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp.o -c /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp.i"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp > CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp.i
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp.s"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp.s
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.o: src/CMakeFiles/shark.dir/flags.make
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.o: src/ObjectiveFunctions/Benchmarks/cec09.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.o"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.o -c /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/cec09.cpp
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.i"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/cec09.cpp > CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.i
+
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.s"
+	cd /home/joel/myshark/Shark/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/cec09.cpp -o CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.s
+
 src/CMakeFiles/shark.dir/ObjectiveFunctions/DiscreteLoss.cpp.o: src/CMakeFiles/shark.dir/flags.make
 src/CMakeFiles/shark.dir/ObjectiveFunctions/DiscreteLoss.cpp.o: src/ObjectiveFunctions/DiscreteLoss.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object src/CMakeFiles/shark.dir/ObjectiveFunctions/DiscreteLoss.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object src/CMakeFiles/shark.dir/ObjectiveFunctions/DiscreteLoss.cpp.o"
 	cd /home/joel/myshark/Shark/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shark.dir/ObjectiveFunctions/DiscreteLoss.cpp.o -c /home/joel/myshark/Shark/src/ObjectiveFunctions/DiscreteLoss.cpp
 
 src/CMakeFiles/shark.dir/ObjectiveFunctions/DiscreteLoss.cpp.i: cmake_force
@@ -449,7 +553,7 @@ src/CMakeFiles/shark.dir/ObjectiveFunctions/DiscreteLoss.cpp.s: cmake_force
 
 src/CMakeFiles/shark.dir/Statistics/ROC.cpp.o: src/CMakeFiles/shark.dir/flags.make
 src/CMakeFiles/shark.dir/Statistics/ROC.cpp.o: src/Statistics/ROC.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object src/CMakeFiles/shark.dir/Statistics/ROC.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object src/CMakeFiles/shark.dir/Statistics/ROC.cpp.o"
 	cd /home/joel/myshark/Shark/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/shark.dir/Statistics/ROC.cpp.o -c /home/joel/myshark/Shark/src/Statistics/ROC.cpp
 
 src/CMakeFiles/shark.dir/Statistics/ROC.cpp.i: cmake_force
@@ -491,6 +595,14 @@ shark_OBJECTS = \
 "CMakeFiles/shark.dir/Models/CMAC.cpp.o" \
 "CMakeFiles/shark.dir/Models/Centroids.cpp.o" \
 "CMakeFiles/shark.dir/Models/RBFLayer.cpp.o" \
+"CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp.o" \
+"CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp.o" \
+"CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp.o" \
+"CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp.o" \
+"CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp.o" \
+"CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp.o" \
+"CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp.o" \
+"CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.o" \
 "CMakeFiles/shark.dir/ObjectiveFunctions/DiscreteLoss.cpp.o" \
 "CMakeFiles/shark.dir/Statistics/ROC.cpp.o"
 
@@ -526,11 +638,19 @@ lib/libshark.a: src/CMakeFiles/shark.dir/Data/SparseData.cpp.o
 lib/libshark.a: src/CMakeFiles/shark.dir/Models/CMAC.cpp.o
 lib/libshark.a: src/CMakeFiles/shark.dir/Models/Centroids.cpp.o
 lib/libshark.a: src/CMakeFiles/shark.dir/Models/RBFLayer.cpp.o
+lib/libshark.a: src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp.o
+lib/libshark.a: src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp.o
+lib/libshark.a: src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp.o
+lib/libshark.a: src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp.o
+lib/libshark.a: src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp.o
+lib/libshark.a: src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp.o
+lib/libshark.a: src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp.o
+lib/libshark.a: src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.o
 lib/libshark.a: src/CMakeFiles/shark.dir/ObjectiveFunctions/DiscreteLoss.cpp.o
 lib/libshark.a: src/CMakeFiles/shark.dir/Statistics/ROC.cpp.o
 lib/libshark.a: src/CMakeFiles/shark.dir/build.make
 lib/libshark.a: src/CMakeFiles/shark.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking CXX static library ../lib/libshark.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/joel/myshark/Shark/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Linking CXX static library ../lib/libshark.a"
 	cd /home/joel/myshark/Shark/src && $(CMAKE_COMMAND) -P CMakeFiles/shark.dir/cmake_clean_target.cmake
 	cd /home/joel/myshark/Shark/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/shark.dir/link.txt --verbose=$(VERBOSE)
 

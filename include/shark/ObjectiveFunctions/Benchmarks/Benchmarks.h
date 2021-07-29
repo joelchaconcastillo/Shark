@@ -67,16 +67,24 @@
 #include <shark/ObjectiveFunctions/Benchmarks/Cigar.h>
 #include <shark/ObjectiveFunctions/Benchmarks/Ackley.h>
 #include <shark/ObjectiveFunctions/Benchmarks/UF1.h>
-//#include <shark/ObjectiveFunctions/Benchmarks/UF2.h>
-//#include <shark/ObjectiveFunctions/Benchmarks/UF3.h>
-//#include <shark/ObjectiveFunctions/Benchmarks/UF4.h>
-//#include <shark/ObjectiveFunctions/Benchmarks/UF5.h>
-//#include <shark/ObjectiveFunctions/Benchmarks/UF6.h>
-//#include <shark/ObjectiveFunctions/Benchmarks/UF7.h>
-//#include <shark/ObjectiveFunctions/Benchmarks/UF8.h>
-//#include <shark/ObjectiveFunctions/Benchmarks/UF9.h>
-//#include <shark/ObjectiveFunctions/Benchmarks/UF10.h>
-
+#include <shark/ObjectiveFunctions/Benchmarks/UF2.h>
+#include <shark/ObjectiveFunctions/Benchmarks/UF3.h>
+#include <shark/ObjectiveFunctions/Benchmarks/UF4.h>
+#include <shark/ObjectiveFunctions/Benchmarks/UF5.h>
+#include <shark/ObjectiveFunctions/Benchmarks/UF6.h>
+#include <shark/ObjectiveFunctions/Benchmarks/UF7.h>
+#include <shark/ObjectiveFunctions/Benchmarks/UF8.h>
+#include <shark/ObjectiveFunctions/Benchmarks/UF9.h>
+#include <shark/ObjectiveFunctions/Benchmarks/UF10.h>
+#include <shark/ObjectiveFunctions/Benchmarks/WFG1.h>
+#include <shark/ObjectiveFunctions/Benchmarks/WFG2.h>
+#include <shark/ObjectiveFunctions/Benchmarks/WFG3.h>
+#include <shark/ObjectiveFunctions/Benchmarks/WFG4.h>
+#include <shark/ObjectiveFunctions/Benchmarks/WFG5.h>
+#include <shark/ObjectiveFunctions/Benchmarks/WFG6.h>
+#include <shark/ObjectiveFunctions/Benchmarks/WFG7.h>
+#include <shark/ObjectiveFunctions/Benchmarks/WFG8.h>
+#include <shark/ObjectiveFunctions/Benchmarks/WFG9.h>
 /// \defgroup benchmarks Benchmark functions
 /// \ingroup objfunctions
 ///

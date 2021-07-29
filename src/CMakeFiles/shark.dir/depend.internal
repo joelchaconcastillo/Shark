@@ -4291,6 +4291,40 @@ src/CMakeFiles/shark.dir/Models/RBFLayer.cpp.o
  include/shark/LinAlg/Metrics.h
  include/shark/Models/AbstractModel.h
  include/shark/Models/RBFLayer.h
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp.o
+ /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.h
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.h
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.h
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp.o
+ /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.h
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.h
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/Misc.h
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.h
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp.o
+ /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.h
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/Misc.h
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.h
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp.o
+ /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.h
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/Misc.h
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp.o
+ /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/Misc.h
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp.o
+ /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/Misc.h
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.h
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp.o
+ /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/Misc.h
+ include/shark/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.h
+src/CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.o
+ /home/joel/myshark/Shark/src/ObjectiveFunctions/Benchmarks/cec09.cpp
+ include/shark/ObjectiveFunctions/Benchmarks/cec09.h
 src/CMakeFiles/shark.dir/ObjectiveFunctions/DiscreteLoss.cpp.o
  /home/joel/myshark/Shark/src/ObjectiveFunctions/DiscreteLoss.cpp
  include/shark/Core/DLLSupport.h
