@@ -85,6 +85,26 @@
 #include <shark/ObjectiveFunctions/Benchmarks/WFG7.h>
 #include <shark/ObjectiveFunctions/Benchmarks/WFG8.h>
 #include <shark/ObjectiveFunctions/Benchmarks/WFG9.h>
+#include <shark/ObjectiveFunctions/Benchmarks/BT1.h>
+#include <shark/ObjectiveFunctions/Benchmarks/BT2.h>
+#include <shark/ObjectiveFunctions/Benchmarks/BT3.h>
+#include <shark/ObjectiveFunctions/Benchmarks/BT4.h>
+#include <shark/ObjectiveFunctions/Benchmarks/BT5.h>
+#include <shark/ObjectiveFunctions/Benchmarks/BT6.h>
+#include <shark/ObjectiveFunctions/Benchmarks/BT7.h>
+#include <shark/ObjectiveFunctions/Benchmarks/BT8.h>
+#include <shark/ObjectiveFunctions/Benchmarks/BT9.h>
+#include <shark/ObjectiveFunctions/Benchmarks/IMB1.h>
+#include <shark/ObjectiveFunctions/Benchmarks/IMB2.h>
+#include <shark/ObjectiveFunctions/Benchmarks/IMB3.h>
+#include <shark/ObjectiveFunctions/Benchmarks/IMB4.h>
+#include <shark/ObjectiveFunctions/Benchmarks/IMB5.h>
+#include <shark/ObjectiveFunctions/Benchmarks/IMB6.h>
+#include <shark/ObjectiveFunctions/Benchmarks/IMB7.h>
+#include <shark/ObjectiveFunctions/Benchmarks/IMB8.h>
+#include <shark/ObjectiveFunctions/Benchmarks/IMB9.h>
+#include <shark/ObjectiveFunctions/Benchmarks/IMB10.h>
+
 /// \defgroup benchmarks Benchmark functions
 /// \ingroup objfunctions
 ///

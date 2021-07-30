@@ -47,6 +47,7 @@ macro( SHARK_ADD_EXAMPLE TUT_SRC NAME COMPONENT )
 endmacro()
 
 shark_add_example( EA/MOO/MOCMASimple MOCMASimple "EA/MOO" )
+shark_add_example( EA/MOO/VSD-SMS-EMOA VSD-SMS-EMOA "EA/MOO" )
 shark_add_example( EA/MOO/SMS-EMOA SMS-EMOA "EA/MOO" )
 shark_add_example( EA/MOO/MOCMAApproximated MOCMAApproximated "EA/MOO" )
 shark_add_example( EA/MOO/MOCMAExperiment MOCMAExperiment "EA/MOO" )

@@ -41,10 +41,10 @@ int main( int argc, char ** argv ) {
         std::size_t mu=100;
         std::size_t iterations=250000;
 //       	RealVector reference(3);//	reference(0) = 100;
-	UF1 f;
-        f.setNumberOfVariables(30);
+	IMB10 f;
+        f.setNumberOfVariables(10);
         f.setNumberOfObjectives(3);
-
+//	f.setPositionParameters(4);
 	SMSEMOA smsemoa;
 	smsemoa.mu() = mu;
 	smsemoa.crossoverProbability()=0.9;
