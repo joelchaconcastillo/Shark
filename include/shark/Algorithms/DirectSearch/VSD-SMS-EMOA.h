@@ -40,7 +40,7 @@
 #include <shark/Algorithms/DirectSearch/Individual.h>
 #include <shark/Algorithms/DirectSearch/Operators/Indicators/HypervolumeIndicator.h>
 #include <shark/Algorithms/DirectSearch/Operators/Selection/TournamentSelection.h>
-#include <shark/Algorithms/DirectSearch/Operators/Selection/IndicatorBasedSelection.h>
+#include <shark/Algorithms/DirectSearch/Operators/Selection/BNPBasedSelection.h>
 #include <shark/Algorithms/DirectSearch/Operators/Recombination/SimulatedBinaryCrossover.h>
 #include <shark/Algorithms/DirectSearch/Operators/Mutation/PolynomialMutation.h>
 #include <shark/Algorithms/DirectSearch/Operators/Evaluation/PenalizingEvaluator.h>
@@ -56,9 +56,9 @@ namespace shark {
 ///	SMS-EMOA: Multiobjective selection based on dominated hypervolume. 
 ///	European Journal of Operational Research.
 /// \ingroup multidirect
-class SMSEMOA : public AbstractMultiObjectiveOptimizer<RealVector >{
+class VSDSMSEMOA : public AbstractMultiObjectiveOptimizer<RealVector >{
 public:
-	SMSEMOA(random::rng_type& rng = random::globalRng):mpe_rng(&rng) {
+	VSDSMSEMOA(random::rng_type& rng = random::globalRng):mpe_rng(&rng) {
 		m_mu = 100;
 		m_mutator.m_nm = 20.0;
 		m_crossover.m_nc = 20.0;
@@ -67,7 +67,7 @@ public:
 	}
 
 	std::string name() const {
-		return "SMSEMOA";
+		return "VSDSMSEMOA";
 	}
 	
 	/// \brief Returns the probability that crossover is applied.
@@ -89,6 +89,18 @@ public:
 	
 	unsigned int& mu(){
 		return m_mu;
+	}
+	double & d0(){
+		return m_d0;
+	}
+	double & df(){
+		return m_df;
+	}
+	long long & nIte(){
+		return m_nIte;
+	}
+	long long & currentIte(){
+		return m_currentIte;
 	}
 	double & crossoverProbability(){
 		return m_crossoverProbability;
@@ -113,7 +125,10 @@ public:
 	HypervolumeIndicator const& indicator()const{
 		return m_selection.indicator();
 	}
-
+        double lowestDiversity(){
+	   double ratio = m_currentIte/(double)m_nIte;
+	   return m_d0 - ratio/m_df;
+	}
 	void read( InArchive & archive ){
 		archive & BOOST_SERIALIZATION_NVP( m_parents );
 		archive & BOOST_SERIALIZATION_NVP( m_mu );
@@ -176,14 +191,15 @@ public:
 	 * 
 	 * \param [in] function The function to iterate upon.
 	 */
-	void step( ObjectiveFunctionType const& function ) {
+	void step( ObjectiveFunctionType const& function) {
+                //update dt 
 		std::vector<IndividualType> offspring = generateOffspring();
 		PenalizingEvaluator penalizingEvaluator;
 		penalizingEvaluator( function, offspring.begin(), offspring.end() );
 		updatePopulation(offspring);
 	}
 protected:
-	/// \brief The individual type of the SMS-EMOA.
+	/// \brief The individual type of the VSD-SMS-EMOA.
 	typedef shark::Individual<RealVector,RealVector> IndividualType;
 
 	void doInit(
@@ -203,6 +219,8 @@ protected:
 		m_crossoverProbability = crossover_prob;
 		m_best.resize( mu );
 		m_parents.resize( mu );
+		m_lowerBounds = lowerBounds;
+		m_upperBounds = upperBounds;
 		//if the number of supplied points is smaller than mu, fill everything in
 		std::size_t numPoints = 0;
 		if(initialSearchPoints.size()<=mu){
@@ -225,11 +243,10 @@ protected:
 			m_best[i].point = m_parents[i].searchPoint();
 			m_best[i].value = m_parents[i].unpenalizedFitness();
 		}
-		m_selection( m_parents, mu );
-		
+		m_selection( m_parents, mu, lowestDiversity(), m_lowerBounds, m_upperBounds);
 		m_crossover.init(lowerBounds,upperBounds);
 		m_mutator.init(lowerBounds,upperBounds);
-	}
+       	}
 	
 	std::vector<IndividualType> generateOffspring()const{
 		std::vector<IndividualType> offspring(1);
@@ -239,20 +256,28 @@ protected:
 	
 	void updatePopulation(  std::vector<IndividualType> const& offspring) {
 		m_parents.push_back(offspring[0]);
-		m_selection( m_parents, mu());
+		m_selection(m_parents, mu(), lowestDiversity(), m_lowerBounds, m_upperBounds);
 
 		//if the individual got selected, insert it into the parent population
-		if(m_parents.back().selected()){
-			for(std::size_t i = 0; i != mu(); ++i){
-				if(!m_parents[i].selected()){
-					m_best[i].point = m_parents[mu()].searchPoint();
-					m_best[i].value = m_parents[mu()].unpenalizedFitness();
-					m_parents[i] = m_parents.back();
-					break;
-				}
-			}
+         //	if(m_parents.back().selected()){
+         //		for(std::size_t i = 0; i != mu(); ++i){
+         //			if(!m_parents[i].selected()){
+         //				m_best[i].point = m_parents[mu()].searchPoint();
+         //				m_best[i].value = m_parents[mu()].unpenalizedFitness();
+         //				m_parents[i] = m_parents.back();
+         //				break;
+         //			}
+         //		}
+         //	}
+	       for(int i = m_parents.size()-1; i>=0; i--)
+		if(!m_parents[i].selected())
+		{
+		   iter_swap(m_parents.begin()+i, m_parents.end()-1);
+		   m_parents.pop_back();
 		}
-		m_parents.pop_back();
+		for(int i = 0; i < m_parents.size(); i++)
+		m_best[i].point = m_parents[i].searchPoint(),m_best[i].value = m_parents[i].unpenalizedFitness();
+
 	}
 	
 	std::vector<IndividualType> m_parents; ///< Population of size \f$\mu + 1\f$.
@@ -282,12 +307,17 @@ private:
 
 	unsigned int m_mu; ///< Size of parent generation
 
-	IndicatorBasedSelection<HypervolumeIndicator> m_selection; ///< Selection operator relying on the (contributing) hypervolume indicator.
+//	IndicatorBasedSelection<HypervolumeIndicator> m_selection; ///< Selection operator relying on the (contributing) hypervolume indicator.
+        BNPBasedSelection<HypervolumeIndicator> m_selection; ////< Selection operator relying on the diversity (in variable space) and hypervolume indicator.
 	SimulatedBinaryCrossover< RealVector > m_crossover; ///< Crossover operator.
 	PolynomialMutator m_mutator; ///< Mutation operator.
 
 	double m_crossoverProbability; ///< Crossover probability.
+	double m_dt, m_d0, m_df;
+	long long m_nIte, m_currentIte;
 	random::rng_type* mpe_rng;
+	RealVector m_lowerBounds, m_upperBounds;
+
 };
 }
 

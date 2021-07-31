@@ -72,12 +72,18 @@ struct HypervolumeIndicator {
 		std::iota(activeIndices.begin(),activeIndices.end(),0);
 		for(std::size_t k=0; k != K; ++k){
 			std::size_t index = leastContributor(points,archive);
-			
 			points.erase(points.begin()+index);
 			indices.push_back(activeIndices[index]);
 			activeIndices.erase(activeIndices.begin()+index);
 		}
 		return indices;
+	}
+	template<typename ParetoFrontType>
+	std::vector<KeyValuePair<double,std::size_t> > leastContributors( ParetoFrontType const& front, std::size_t K)const{
+		if(m_reference.size() != 0)
+			return m_algorithm.smallest(front,K,m_reference);
+		else	
+			return m_algorithm.smallest(front,K);
 	}
 	
 	template<class random>
