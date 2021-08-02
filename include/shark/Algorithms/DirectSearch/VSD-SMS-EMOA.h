@@ -127,7 +127,7 @@ public:
 	}
         double lowestDiversity(){
 	   double ratio = m_currentIte/(double)m_nIte;
-	   return m_d0 - ratio/m_df;
+	   return m_d0 - m_d0*(ratio/m_df);
 	}
 	void read( InArchive & archive ){
 		archive & BOOST_SERIALIZATION_NVP( m_parents );

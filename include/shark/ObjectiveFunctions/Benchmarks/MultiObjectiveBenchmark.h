@@ -108,8 +108,7 @@ public:
 	
 	std::size_t numberOfVariables()const{
 		return get<0>().numberOfVariables();
-	}
-	
+	}	
 	template<int N>
 	typename std::tuple_element<N, std::tuple<Objectives...> >::type& get(){
 		return std::get<N>(m_objectives);

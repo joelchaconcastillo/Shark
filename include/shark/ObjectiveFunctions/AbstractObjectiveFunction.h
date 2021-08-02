@@ -166,7 +166,7 @@ public:
 	bool isNoisy()const{
 		return m_features & IS_NOISY;
 	}
-
+	void setPositionParameters(std::size_t position_k){}
 	/// \brief Default ctor.
 	AbstractObjectiveFunction():m_evaluationCounter(0), mep_rng(&random::globalRng){
 	    m_features |=HAS_VALUE;
