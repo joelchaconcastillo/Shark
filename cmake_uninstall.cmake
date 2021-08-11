@@ -1,8 +1,8 @@
-if (NOT EXISTS "/home/joel/myshark/Shark/install_manifest.txt")
-    message(FATAL_ERROR "Cannot find install manifest: \"/home/joel/myshark/Shark/install_manifest.txt\"")
-endif(NOT EXISTS "/home/joel/myshark/Shark/install_manifest.txt")
+if (NOT EXISTS "/home/joel.chacon/Final_Experiment_Indicator/Shark/install_manifest.txt")
+    message(FATAL_ERROR "Cannot find install manifest: \"/home/joel.chacon/Final_Experiment_Indicator/Shark/install_manifest.txt\"")
+endif(NOT EXISTS "/home/joel.chacon/Final_Experiment_Indicator/Shark/install_manifest.txt")
 
-file(READ "/home/joel/myshark/Shark/install_manifest.txt" files)
+file(READ "/home/joel.chacon/Final_Experiment_Indicator/Shark/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 list(REVERSE files)
 foreach (file ${files})

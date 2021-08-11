@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "../lib/libshark.a"
-  "../lib/libshark.pdb"
   "CMakeFiles/shark.dir/Algorithms/ApproximateKernelExpansion.cpp.o"
   "CMakeFiles/shark.dir/Algorithms/DirectSearch/CMA.cpp.o"
   "CMakeFiles/shark.dir/Algorithms/DirectSearch/CMSA.cpp.o"
@@ -40,6 +38,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/shark.dir/ObjectiveFunctions/Benchmarks/cec09.cpp.o"
   "CMakeFiles/shark.dir/ObjectiveFunctions/DiscreteLoss.cpp.o"
   "CMakeFiles/shark.dir/Statistics/ROC.cpp.o"
+  "../lib/libshark.pdb"
+  "../lib/libshark.a"
 )
 
 # Per-language clean rules from dependency scanning.

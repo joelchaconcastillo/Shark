@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "../bin/SharkVersion"
-  "../bin/SharkVersion.pdb"
   "CMakeFiles/SharkVersion.dir/Version.cpp.o"
+  "../bin/SharkVersion.pdb"
+  "../bin/SharkVersion"
 )
 
 # Per-language clean rules from dependency scanning.
