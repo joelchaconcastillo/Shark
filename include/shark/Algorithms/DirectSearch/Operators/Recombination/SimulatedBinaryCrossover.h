@@ -66,9 +66,6 @@ namespace shark {
 		        double y1, y2, yl, yu;
 		        double c1, c2;
 		        double alpha, beta, betaq;
-
-		  if( random::coinToss(rng, m_prob ) )
-		    {
 		        for (int i=0; i<nvar; i++)
 		        {
 		            if( random::coinToss(rng,0.5) )
@@ -131,7 +128,6 @@ namespace shark {
 		                }
 		            }
 		        }
-		    }
 		//	for( unsigned int i = 0; i < point1.size(); i++ ) {
 
 		//		if( !random::coinToss(rng, m_prob ) )
