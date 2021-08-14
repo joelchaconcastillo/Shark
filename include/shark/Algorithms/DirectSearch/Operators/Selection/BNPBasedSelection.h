@@ -83,16 +83,17 @@ struct BNPBasedSelection {
 		        nonDominatedSort(penalizedFitness(population), ranks(population));
 			//detect the nearest pair of individuals..
 			std::pair<double, std::pair<int, int>> near(DBL_MAX, std::make_pair(-1, -1));
-			double adi=0.0;
+			double adi=0.0, cont=0.0;
 		  	for(int i = 0; i < population.size(); i++)	
 			{
 			  for(int j = i+1; j< population.size(); j++)
 			  {
 				near = std::min(near, std::make_pair(norm2(population[i].searchPoint(), population[j].searchPoint(), lowerBounds, upperBounds),std::make_pair(i,j)));
 			  adi+=norm2(population[i].searchPoint(), population[j].searchPoint(), lowerBounds, upperBounds);
+				cont++;
 			  }
 			}
-			std::cout << near.first<<" "<<dt<<" " <<adi<<std::endl;
+//			std::cout << near.first<<" "<<dt<<" " <<adi/cont<<std::endl;
 			if(near.first>=dt)break;
 			std::pair<int,int> cp = near.second;
 			// remove the element with biggest rank  ties are broken by HV contributions in that front

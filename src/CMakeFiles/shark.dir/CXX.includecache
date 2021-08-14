@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/ApproximateKernelExpansion.cpp
+/home/joel/Shark/src/Algorithms/ApproximateKernelExpansion.cpp
 shark/Algorithms/ApproximateKernelExpansion.h
 -
 shark/Algorithms/KMeans.h
@@ -14,7 +14,7 @@ shark/Algorithms/KMeans.h
 shark/Algorithms/GradientDescent/LBFGS.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/DirectSearch/CMA.cpp
+/home/joel/Shark/src/Algorithms/DirectSearch/CMA.cpp
 shark/Algorithms/DirectSearch/CMA.h
 -
 shark/Core/Exception.h
@@ -28,7 +28,7 @@ shark/Core/utility/KeyValuePair.h
 algorithm
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/DirectSearch/CMSA.cpp
+/home/joel/Shark/src/Algorithms/DirectSearch/CMSA.cpp
 shark/Algorithms/DirectSearch/CMSA.h
 -
 shark/Algorithms/DirectSearch/Operators/Evaluation/PenalizingEvaluator.h
@@ -36,7 +36,7 @@ shark/Algorithms/DirectSearch/Operators/Evaluation/PenalizingEvaluator.h
 shark/Algorithms/DirectSearch/Operators/Selection/ElitistSelection.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/DirectSearch/CrossEntropyMethod.cpp
+/home/joel/Shark/src/Algorithms/DirectSearch/CrossEntropyMethod.cpp
 shark/Core/Exception.h
 -
 shark/Algorithms/DirectSearch/Operators/Evaluation/PenalizingEvaluator.h
@@ -46,13 +46,13 @@ shark/Algorithms/DirectSearch/Operators/Selection/ElitistSelection.h
 shark/Algorithms/DirectSearch/CrossEntropyMethod.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/DirectSearch/ElitistCMA.cpp
+/home/joel/Shark/src/Algorithms/DirectSearch/ElitistCMA.cpp
 shark/Algorithms/DirectSearch/ElitistCMA.h
 -
 algorithm
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/DirectSearch/MOEAD.cpp
+/home/joel/Shark/src/Algorithms/DirectSearch/MOEAD.cpp
 shark/Algorithms/DirectSearch/MOEAD.h
 -
 shark/Algorithms/DirectSearch/Operators/Evaluation/PenalizingEvaluator.h
@@ -60,13 +60,13 @@ shark/Algorithms/DirectSearch/Operators/Evaluation/PenalizingEvaluator.h
 shark/Algorithms/DirectSearch/Operators/Scalarizers/Tchebycheff.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/DirectSearch/Operators/Lattice.cpp
+/home/joel/Shark/src/Algorithms/DirectSearch/Operators/Lattice.cpp
 boost/math/special_functions/binomial.hpp
 -
 shark/Algorithms/DirectSearch/Operators/Lattice.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/DirectSearch/RVEA.cpp
+/home/joel/Shark/src/Algorithms/DirectSearch/RVEA.cpp
 shark/Algorithms/DirectSearch/RVEA.h
 -
 shark/Algorithms/DirectSearch/Operators/Evaluation/PenalizingEvaluator.h
@@ -74,29 +74,29 @@ shark/Algorithms/DirectSearch/Operators/Evaluation/PenalizingEvaluator.h
 shark/Algorithms/DirectSearch/Operators/Selection/TournamentSelection.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/FisherLDA.cpp
+/home/joel/Shark/src/Algorithms/FisherLDA.cpp
 shark/Algorithms/Trainers/FisherLDA.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/GradientDescent/AbstractLineSearchOptimizer.cpp
+/home/joel/Shark/src/Algorithms/GradientDescent/AbstractLineSearchOptimizer.cpp
 shark/Core/DLLSupport.h
 -
 shark/Algorithms/GradientDescent/AbstractLineSearchOptimizer.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/GradientDescent/BFGS.cpp
+/home/joel/Shark/src/Algorithms/GradientDescent/BFGS.cpp
 shark/Core/DLLSupport.h
 -
 shark/Algorithms/GradientDescent/BFGS.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/GradientDescent/CG.cpp
+/home/joel/Shark/src/Algorithms/GradientDescent/CG.cpp
 shark/Core/DLLSupport.h
 -
 shark/Algorithms/GradientDescent/CG.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/GradientDescent/LBFGS.cpp
+/home/joel/Shark/src/Algorithms/GradientDescent/LBFGS.cpp
 shark/Core/DLLSupport.h
 -
 shark/Algorithms/GradientDescent/LBFGS.h
@@ -104,13 +104,13 @@ shark/Algorithms/GradientDescent/LBFGS.h
 shark/ObjectiveFunctions/BoxConstraintHandler.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/GradientDescent/LineSearch.cpp
+/home/joel/Shark/src/Algorithms/GradientDescent/LineSearch.cpp
 shark/Core/DLLSupport.h
 -
 shark/Algorithms/GradientDescent/LineSearch.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/GradientDescent/Rprop.cpp
+/home/joel/Shark/src/Algorithms/GradientDescent/Rprop.cpp
 shark/Core/DLLSupport.h
 -
 shark/Algorithms/GradientDescent/Rprop.h
@@ -120,11 +120,11 @@ boost/math/special_functions/sign.hpp
 boost/serialization/base_object.hpp
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/GradientDescent/TrustRegionNewton.cpp
+/home/joel/Shark/src/Algorithms/GradientDescent/TrustRegionNewton.cpp
 shark/Algorithms/GradientDescent/TrustRegionNewton.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/KMeans.cpp
+/home/joel/Shark/src/Algorithms/KMeans.cpp
 shark/Algorithms/KMeans.h
 -
 shark/Models/Clustering/HardClusteringModel.h
@@ -136,15 +136,15 @@ boost/range/algorithm/equal.hpp
 limits
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/LDA.cpp
+/home/joel/Shark/src/Algorithms/LDA.cpp
 shark/Algorithms/Trainers/LDA.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/LinearRegression.cpp
+/home/joel/Shark/src/Algorithms/LinearRegression.cpp
 shark/Algorithms/Trainers/LinearRegression.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/LogisticRegression.cpp
+/home/joel/Shark/src/Algorithms/LogisticRegression.cpp
 shark/Core/DLLSupport.h
 -
 shark/Algorithms/Trainers/LogisticRegression.h
@@ -162,23 +162,23 @@ shark/ObjectiveFunctions/BoxConstraintHandler.h
 cmath
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/NormalizeComponentsWhitening.cpp
+/home/joel/Shark/src/Algorithms/NormalizeComponentsWhitening.cpp
 shark/Algorithms/Trainers/NormalizeComponentsWhitening.h
 -
 shark/Data/Statistics.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Algorithms/PCA.cpp
+/home/joel/Shark/src/Algorithms/PCA.cpp
 shark/Data/Statistics.h
 -
 shark/Algorithms/Trainers/PCA.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Core/Random.cpp
+/home/joel/Shark/src/Core/Random.cpp
 shark/Core/Random.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Data/Csv.cpp
+/home/joel/Shark/src/Data/Csv.cpp
 limits
 -
 boost/spirit/include/qi.hpp
@@ -192,7 +192,7 @@ vector
 ctype.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Data/Download.cpp
+/home/joel/Shark/src/Data/Download.cpp
 winsock2.h
 -
 netinet/tcp.h
@@ -222,7 +222,7 @@ cstring
 cctype
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Data/SparseData.cpp
+/home/joel/Shark/src/Data/SparseData.cpp
 limits
 -
 boost/spirit/include/qi.hpp
@@ -232,23 +232,23 @@ boost/fusion/adapted/std_pair.hpp
 shark/Data/SparseData.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Models/CMAC.cpp
+/home/joel/Shark/src/Models/CMAC.cpp
 shark/Models/CMAC.h
 -
 boost/serialization/vector.hpp
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Models/Centroids.cpp
+/home/joel/Shark/src/Models/Centroids.cpp
 shark/Models/Clustering/Centroids.h
 -
 shark/Data/DataView.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Models/RBFLayer.cpp
+/home/joel/Shark/src/Models/RBFLayer.cpp
 shark/Models/RBFLayer.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp
+/home/joel/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.cpp
 shark/ObjectiveFunctions/Benchmarks/Toolkit/ExampleProblems.h
 -
 cassert
@@ -258,7 +258,7 @@ shark/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.h
 shark/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp
+/home/joel/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.cpp
 shark/ObjectiveFunctions/Benchmarks/Toolkit/ExampleShapes.h
 -
 cassert
@@ -270,7 +270,7 @@ shark/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.h
 shark/ObjectiveFunctions/Benchmarks/Toolkit/Misc.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp
+/home/joel/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.cpp
 shark/ObjectiveFunctions/Benchmarks/Toolkit/ExampleTransitions.h
 -
 cassert
@@ -280,7 +280,7 @@ shark/ObjectiveFunctions/Benchmarks/Toolkit/Misc.h
 shark/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp
+/home/joel/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.cpp
 shark/ObjectiveFunctions/Benchmarks/Toolkit/FrameworkFunctions.h
 -
 cassert
@@ -288,7 +288,7 @@ cassert
 shark/ObjectiveFunctions/Benchmarks/Toolkit/Misc.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp
+/home/joel/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/Misc.cpp
 shark/ObjectiveFunctions/Benchmarks/Toolkit/Misc.h
 -
 vector
@@ -296,7 +296,7 @@ vector
 cassert
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp
+/home/joel/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.cpp
 shark/ObjectiveFunctions/Benchmarks/Toolkit/ShapeFunctions.h
 -
 cassert
@@ -308,7 +308,7 @@ shark/ObjectiveFunctions/Benchmarks/Toolkit/Misc.h
 shark/ObjectiveFunctions/Benchmarks/Toolkit/Misc.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp
+/home/joel/Shark/src/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.cpp
 shark/ObjectiveFunctions/Benchmarks/Toolkit/TransFunctions.h
 -
 cassert
@@ -318,19 +318,19 @@ cmath
 shark/ObjectiveFunctions/Benchmarks/Toolkit/Misc.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/ObjectiveFunctions/Benchmarks/cec09.cpp
+/home/joel/Shark/src/ObjectiveFunctions/Benchmarks/cec09.cpp
 shark/ObjectiveFunctions/Benchmarks/cec09.h
 -
 math.h
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/ObjectiveFunctions/DiscreteLoss.cpp
+/home/joel/Shark/src/ObjectiveFunctions/DiscreteLoss.cpp
 shark/ObjectiveFunctions/Loss/DiscreteLoss.h
 -
 boost/lambda/lambda.hpp
 -
 
-/home/joel.chacon/Final_Experiment_Indicator/Shark/src/Statistics/ROC.cpp
+/home/joel/Shark/src/Statistics/ROC.cpp
 shark/Statistics/ROC.h
 -
 

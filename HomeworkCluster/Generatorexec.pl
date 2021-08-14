@@ -93,7 +93,8 @@ foreach my$pc(("0.2", "0.4", "0.6", "0.8", "1.0"))
                                  my $inst = $configuration2[0];	
                                  my $nvar = $configuration2[1];	
                                  my $nobj = $configuration2[2];	
-         			print $fout "~$PathAlgorithm/bin/SMS-EMOA --Instance $inst --n 100 --nfes 2500000 --nvar $nvar --Path $PathAlgorithm/SMS-EMOA --nobj $nobj --Seed $Seed --param_k 4 --Px $pc\n";
+         			#print $fout "~$PathAlgorithm/bin/SMS-EMOA --Instance $inst --n 100 --nfes 2500000 --nvar $nvar --Path $PathAlgorithm/SMS-EMOA --nobj $nobj --Seed $Seed --param_k 4 --Px $pc\n";
+         			print $fout "~$PathAlgorithm/bin/VSD-SMS-EMOA --Instance $inst --n 100 --nfes 2500000 --nvar $nvar --Path $PathAlgorithm/VSD-SMS-EMOA --nobj $nobj --Seed $Seed --param_k 4 --Px $pc\n";
          		}
          	}
          }
