@@ -39,9 +39,9 @@ using namespace std;
 void save_front(string saveFilename, SMSEMOA &smsemoa, bool overwrite=true)
 {
         std::fstream fout;
-	if(overwrite)
-	  fout.open(saveFilename.c_str());
-	else
+//	if(overwrite)
+//	  fout.open(saveFilename.c_str());
+//	else
 	  fout.open(saveFilename.c_str(),fstream::app|fstream::out );
 	for( std::size_t i = 0; i < smsemoa.solution().size(); i++ ) {
 		for( std::size_t j = 0; j < smsemoa.solution()[i].value.size(); j++ ) {
@@ -54,9 +54,9 @@ void save_front(string saveFilename, SMSEMOA &smsemoa, bool overwrite=true)
 void save_pos(string saveFilename, SMSEMOA &smsemoa, bool overwrite=true)
 {
         std::fstream fout;
-	if(overwrite)
-	fout.open(saveFilename.c_str());
-	else
+//	if(overwrite)
+//	fout.open(saveFilename.c_str());
+//	else
 	fout.open(saveFilename.c_str(), fstream::app|fstream::out);
 	for( std::size_t i = 0; i < smsemoa.solution().size(); i++ ) {
 		for( std::size_t j = 0; j < smsemoa.solution()[i].point.size(); j++ ) {
@@ -69,8 +69,7 @@ void save_pos(string saveFilename, SMSEMOA &smsemoa, bool overwrite=true)
 }
 MultiObjectiveFunction *obj;
 SMSEMOA smsemoa;
-int run;
-std::size_t iterations;
+int run, iterations;
 map<string, MultiObjectiveFunction*> mp;
 
 string strTestInstance, currentPATH;
@@ -171,26 +170,27 @@ int main( int argc, char * argv[] ) {
 	
 	obj->init();
 	smsemoa.init(*obj);
-  	long long acum = 0;	
-	string posfix="_"+strTestInstance+"_nobj_"+to_string(obj->numberOfObjectives())+"_nvar_"+to_string(obj->numberOfVariables())+"_seed_"+to_string(run)+"_px_"+to_string(smsemoa.crossoverProbability());
+
+  	long long acum = 0;
+	string posfix="_"+strTestInstance+"_nobj_"+to_string(obj->numberOfObjectives())+"_nvar_"+to_string(obj->numberOfVariables())+"_seed_"+to_string(run)+"_px_"+to_string(smsemoa.crossoverProbability())+"_nfes_"+to_string(iterations);
 	string filepof=currentPATH+"/POF"+posfix, filepos=currentPATH+"/POS"+posfix;
         save_front(filepof, smsemoa);
         save_pos(filepos, smsemoa);
-	for(std::size_t i = 0; i != iterations; ++i){
+	int i = 0;
+	while(i < iterations)
+	{
 		smsemoa.step(*obj);
+		i++;
+		acum++;
 		if(acum > 0.1*iterations)
 		{
 		  acum -=0.1*iterations;
 		  save_front(filepof, smsemoa, false);
 		  save_pos(filepos, smsemoa, false);
 		}
-		acum++;
 	}
-//	for( std::size_t i = 0; i < smsemoa.solution().size(); i++ ) {
-//		for( std::size_t j = 0; j < obj->numberOfObjectives(); j++ ) {
-//			std::cout<< smsemoa.solution()[ i ].value[j]<<" ";
-//		}
-//		std::cout << std::endl;
-//	}
+        save_front(filepof, smsemoa, false);
+	save_pos(filepos, smsemoa, false);
+
 
 }

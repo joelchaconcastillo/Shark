@@ -61,59 +61,129 @@ namespace shark {
 		void operator()(randomType& rng, IndividualType & i1, IndividualType & i2 )const{	
 			RealVector& point1 = i1.searchPoint();
 			RealVector& point2 = i2.searchPoint();
+			int nvar = point1.size();
+		        double rand;
+		        double y1, y2, yl, yu;
+		        double c1, c2;
+		        double alpha, beta, betaq;
 
-			for( unsigned int i = 0; i < point1.size(); i++ ) {
+		  if( random::coinToss(rng, m_prob ) )
+		    {
+		        for (int i=0; i<nvar; i++)
+		        {
+		            if( random::coinToss(rng,0.5) )
+		            {
+		                if (fabs(point1[i]-point2[i]) > 1.0e-14)
+		                {
+		                    if (point1[i] < point2[i])
+		                    {
+		                        y1 = point1[i];
+		                        y2 = point2[i];
+		                    }
+		                    else
+		                    {
+		                        y1 = point2[i];
+		                        y2 = point1[i];
+		                    }
+		                    yl = m_lower(i);
+		                    yu = m_upper(i);
+		                    rand = random::uni(rng, 0., 1. );
+		                    beta = 1.0 + (2.0*(y1-yl)/(y2-y1));
+		                    alpha = 2.0 - std::pow(beta,-(m_nc+1.0));
+		                    if (rand <= (1.0/alpha))
+		                    {
+		                        betaq = std::pow ((rand*alpha),(1.0/(m_nc+1.0)));
+		                    }
+		                    else
+		                    {
+		                        betaq = std::pow ((1.0/(2.0 - rand*alpha)),(1.0/(m_nc+1.0)));
+		                    }
+		                    c1 = 0.5*((y1+y2)-betaq*(y2-y1));
+		                    beta = 1.0 + (2.0*(yu-y2)/(y2-y1));
+		                    alpha = 2.0 - std::pow(beta,-(m_nc+1.0));
+		                    if (rand <= (1.0/alpha))
+		                    {
+		                        betaq = std::pow ((rand*alpha),(1.0/(m_nc+1.0)));
+		                    }
+		                    else
+		                    {
+		                        betaq = std::pow ((1.0/(2.0 - rand*alpha)),(1.0/(m_nc+1.0)));
+		                    }
+		                    c2 = 0.5*((y1+y2)+betaq*(y2-y1));
+		                    if (c1<yl)
+		                        c1=yl;
+		                    if (c2<yl)
+		                        c2=yl;
+		                    if (c1>yu)
+		                        c1=yu;
+		                    if (c2>yu)
+		                        c2=yu;
+				    if( random::coinToss(rng,0.5) )
+		                    {
+		                        point1[i] = c2;
+		                        point2[i] = c1;
+		                    }
+		                    else
+		                    {
+		                        point1[i] = c1;
+		                        point2[i] = c2;
+		                    }
+		                }
+		            }
+		        }
+		    }
+		//	for( unsigned int i = 0; i < point1.size(); i++ ) {
 
-				if( !random::coinToss(rng, m_prob ) )
-					continue;
-				
-				double y1 = 0;
-				double y2 = 0;
-				if( point2[i] < point1[i] ) {
-					y1 = point2[i];
-					y2 = point1[i];
-				} else {
-					y1 = point1[i];
-					y2 = point2[i];
-				}
-				
-				double betaQ1 = 0.0;
-				double betaQ2 = 0.0;
-				if( std::abs(y2 - y1) < 1E-7 )continue;//equal
-				
-				// Find beta value2
-				double beta1 = 1.0 + 2.0 * (y1 - m_lower( i )) / (y2 - y1);
-				double beta2 = 1.0 + 2.0 * (m_upper( i ) - y2) / (y2 - y1);
-				double expp = m_nc + 1.0;
-				// Find alpha
-				double alpha1 = 2.0 - std::pow(beta1 , -expp);
-				double alpha2 = 2.0 - std::pow(beta2 , -expp);
+		//		if( !random::coinToss(rng, m_prob ) )
+		//			continue;
+		//		
+		//		double y1 = 0;
+		//		double y2 = 0;
+		//		if( point2[i] < point1[i] ) {
+		//			y1 = point2[i];
+		//			y2 = point1[i];
+		//		} else {
+		//			y1 = point1[i];
+		//			y2 = point2[i];
+		//		}
+		//		
+		//		double betaQ1 = 0.0;
+		//		double betaQ2 = 0.0;
+		//		if( std::abs(y2 - y1) < 1E-14 )continue;//equal
+		//		
+		//		// Find beta value2
+		//		double beta1 = 1.0 + 2.0 * (y1 - m_lower( i )) / (y2 - y1);
+		//		double beta2 = 1.0 + 2.0 * (m_upper( i ) - y2) / (y2 - y1);
+		//		double expp = m_nc + 1.0;
+		//		// Find alpha
+		//		double alpha1 = 2.0 - std::pow(beta1 , -expp);
+		//		double alpha2 = 2.0 - std::pow(beta2 , -expp);
 
-				double u = random::uni(rng, 0., 1. );
-				alpha1 *=u;
-				alpha2 *=u;
-				if( u > 1. / alpha1 ) {
-					alpha1 = 1. / (2. - alpha1);
-				}
-				if( u > 1. / alpha2 ) {
-					alpha2 = 1. / (2. - alpha2);
-				}
-				betaQ1 = std::pow( alpha1, 1.0/expp );
-				betaQ2 = std::pow( alpha2, 1.0/expp );
+		//		double u = random::uni(rng, 0., 1. );
+		//		alpha1 *=u;
+		//		alpha2 *=u;
+		//		if( u > 1. / alpha1 ) {
+		//			alpha1 = 1. / (2. - alpha1);
+		//		}
+		//		if( u > 1. / alpha2 ) {
+		//			alpha2 = 1. / (2. - alpha2);
+		//		}
+		//		betaQ1 = std::pow( alpha1, 1.0/expp );
+		//		betaQ2 = std::pow( alpha2, 1.0/expp );
 
-				//recombine points
-				point1[i] = 0.5 * ((y1 + y2) - betaQ1 * (y2 - y1));
-				point2[i] = 0.5 * ((y1 + y2) + betaQ2 * (y2 - y1));
-				// randomly swap loci
-				if( random::coinToss(rng,0.5) ) std::swap(point1[i], point2[i]);
+		//		//recombine points
+		//		point1[i] = 0.5 * ((y1 + y2) - betaQ1 * (y2 - y1));
+		//		point2[i] = 0.5 * ((y1 + y2) + betaQ2 * (y2 - y1));
+		//		// randomly swap loci
+		//		if( random::coinToss(rng,0.5) ) std::swap(point1[i], point2[i]);
 
 
-				//  -> from Deb's implementation, not contained in any paper
-				point1[i] = std::max( point1[i], m_lower( i ) );
-				point1[i] = std::min( point1[i], m_upper( i ) );
-				point2[i] = std::max( point2[i], m_lower( i ) );
-				point2[i] = std::min( point2[i], m_upper( i ) );
-			}
+		//		//  -> from Deb's implementation, not contained in any paper
+		//		point1[i] = std::max( point1[i], m_lower( i ) );
+		//		point1[i] = std::min( point1[i], m_upper( i ) );
+		//		point2[i] = std::max( point2[i], m_lower( i ) );
+		//		point2[i] = std::min( point2[i], m_upper( i ) );
+		//	}
 
 		}
 
