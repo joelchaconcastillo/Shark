@@ -97,7 +97,7 @@ struct DTLZ5 : public MultiObjectiveFunction
 //		for (std::size_t i = numberOfVariables() - k + 1; i <= numberOfVariables(); i++)
 //			g += sqr( x(i-1) - 0.5 );
 		for (std::size_t i = numberOfVariables() - k ; i < numberOfVariables(); i++)
-			g += sqr( x(i-1) - 0.5 );
+			g += sqr( x(i) - 0.5 );
 
 		double t = M_PI  / (4.0 * (1.0 + g));
 

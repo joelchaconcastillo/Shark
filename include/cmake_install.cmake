@@ -1,4 +1,4 @@
-# Install script for directory: /home/joel/Shark/include
+# Install script for directory: /home/joel.chacon/Final_Experiment_Indicator/Shark/include
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,6 +38,6 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/joel/Shark/include/shark" REGEX "/\\.[^/]*$" EXCLUDE)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/joel.chacon/Final_Experiment_Indicator/Shark/include/shark" REGEX "/\\.[^/]*$" EXCLUDE)
 endif()
 
