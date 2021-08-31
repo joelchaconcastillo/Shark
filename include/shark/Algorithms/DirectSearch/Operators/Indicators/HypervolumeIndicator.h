@@ -63,7 +63,7 @@ struct HypervolumeIndicator {
 		else	
 			return m_algorithm.smallest(front,1)[0].value;
 	}
-	
+		
 	template<typename ParetoFrontType, typename ParetoArchive>
 	std::vector<std::size_t> leastContributors( ParetoFrontType const& front, ParetoArchive const& archive, std::size_t K)const{
 		std::vector<std::size_t> indices;
@@ -85,6 +85,39 @@ struct HypervolumeIndicator {
 		else	
 			return m_algorithm.smallest(front,K);
 	}
+	template<typename ParetoFrontType, typename ParetoArchive>
+	std::size_t largestContributor( ParetoFrontType const& front, ParetoArchive const& /*archive*/)const{
+		HypervolumeContribution algorithm;
+		if(m_reference.size() != 0)
+			return m_algorithm.largest(front,1,m_reference)[0].value;
+		else	
+			return m_algorithm.largest(front,1)[0].value;
+	}
+
+
+	template<typename ParetoFrontType, typename ParetoArchive>
+	std::vector<std::size_t> largestContributors( ParetoFrontType const& front, ParetoArchive const& archive, std::size_t K)const{
+		std::vector<std::size_t> indices;
+		std::vector<RealVector> points(front.begin(),front.end());
+		std::vector<std::size_t> activeIndices(points.size());
+		std::iota(activeIndices.begin(),activeIndices.end(),0);
+		for(std::size_t k=0; k != K; ++k){
+			std::size_t index = largestContributor(points,archive);
+			points.erase(points.begin()+index);
+			indices.push_back(activeIndices[index]);
+			activeIndices.erase(activeIndices.begin()+index);
+		}
+		return indices;
+	}
+	template<typename ParetoFrontType>
+	std::vector<KeyValuePair<double,std::size_t> > largestContributors( ParetoFrontType const& front, std::size_t K)const{
+		if(m_reference.size() != 0)
+			return m_algorithm.largest(front,K,m_reference);
+		else	
+			return m_algorithm.largest(front,K);
+	}
+
+
 	
 	template<class random>
 	void init(std::size_t /*numOfObjectives*/, std::size_t /*mu*/, random& /*rng*/){}

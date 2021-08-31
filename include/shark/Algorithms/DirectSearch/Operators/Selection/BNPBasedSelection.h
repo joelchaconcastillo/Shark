@@ -73,171 +73,92 @@ struct BNPBasedSelection {
 	* \param [in,out] population The population to be ranked.
 	* \param [in,out] mu the number of individuals to select
 	*/
-////This is a variant of the BNP algorithm
-////	template<typename PopulationType>
-////	void operator()( PopulationType & population, std::size_t mu, double dt, RealVector & lowerBounds, RealVector & upperBounds){
-////		if(population.empty()) return;
-////		typedef std::vector< view_reference<typename PopulationType::value_type > > View;
-////		while(population.size() > mu)
-////		{
-////			//compute fronts and ranks
-////		        nonDominatedSort(penalizedFitness(population), ranks(population));
-////			//detect the nearest pair of individuals..
-////			std::pair<double, std::pair<int, int>> near(DBL_MAX, std::make_pair(-1, -1));
-////			double adi=0.0, cont=0.0;
-////		  	for(int i = 0; i < population.size(); i++)	
-////			{
-////			  for(int j = i+1; j< population.size(); j++)
-////			  {
-////				near = std::min(near, std::make_pair(norm2(population[i].searchPoint(), population[j].searchPoint(), lowerBounds, upperBounds),std::make_pair(i,j)));
-////			  adi+=norm2(population[i].searchPoint(), population[j].searchPoint(), lowerBounds, upperBounds);
-////				cont++;
-////			  }
-////			}
-//////			std::cout << near.first<<" "<<dt<<" " <<adi/cont<<std::endl;
-////			if(near.first>=dt)break;
-////			std::pair<int,int> cp = near.second;
-////			// remove the element with biggest rank  ties are broken by HV contributions in that front
-////			if(population[cp.first].rank()>population[cp.second].rank())
-////			{
-////			   std::iter_swap(population.begin()+cp.first, population.end()-1);
-////			   population.pop_back();
-////			}
-////			else if(population[cp.first].rank()<population[cp.second].rank())
-////			{
-////			   std::iter_swap(population.begin()+cp.second, population.end()-1);
-////			   population.pop_back();
-////			}
-////			else//same rank
-////			{
-////			  View front;
-////			  std::vector<int>idxs;
-////			  for( unsigned int i = 0; i < population.size(); i++ ) 
-////				if( population[cp.first].rank() == population[i].rank()) 
-////				   front.push_back(population[i]), idxs.push_back(i);
-////			  std::size_t frontSize = front.size();
-////			  std::vector<KeyValuePair<double,std::size_t> > contrFront = m_indicator.leastContributors(penalizedFitness(front), frontSize);
-////			  for(auto idx:contrFront)
-////			  {
-////			       if(idxs[idx.value]==cp.first)
-////				{
-////			   	   std::iter_swap(population.begin()+cp.first, population.end()-1);
-////			      	   population.pop_back();
-////				   break;
-////				}
-////				if(idxs[idx.value]==cp.second)
-////				{
-////			   	   std::iter_swap(population.begin()+cp.second, population.end()-1);
-////			      	   population.pop_back();
-////				   break;
-////				}
-////			  }
-////			}
-////		}
-////
-////		
-////		//This is still necessary since that the binary torunament is performed
-////		nonDominatedSort(penalizedFitness(population), ranks(population));
-////		unsigned int maxRank = 0;
-////		std::map< unsigned int, View > fronts;
-////
-////		for( unsigned int i = 0; i < population.size(); i++ ) {
-////			maxRank = std::max( maxRank, population[i].rank());
-////			fronts[population[i].rank()].push_back( population[i] );
-////			population[i].selected() = true;
-////		}
-////
-////		//deselect the highest rank fronts until we would end up with less or equal mu elements
-////		unsigned int rank = maxRank;
-////		std::size_t popSize = population.size();
-////		
-////		while(popSize-fronts[rank].size() >= mu){
-////			//deselect all elements in this front
-////			View & front = fronts[rank];
-////			for(std::size_t i = 0; i != front.size(); ++i){
-////				front[i].selected() = false;
-////			}
-////			popSize -= front.size();
-////			--rank;
-////		}
-////		//now use the indicator to deselect the worst approximating elements of the last selected front
-////		View& front = fronts[rank];
-////		
-////		//create an archive of points which are surely selected because of their domination rank
-////		View archive;
-////		archive.reserve(popSize - front.size());
-////		for(unsigned int r = 1; r != rank; ++r){
-////			archive.insert(archive.end(),fronts[r].begin(), fronts[r].end());
-////		}
-////		//deselect 
-////		std::vector<std::size_t> deselected = m_indicator.leastContributors(penalizedFitness(front),penalizedFitness(archive), popSize - mu);
-////		for(auto lc:deselected){
-////			front[lc].selected() = false;
-////		}
-////	}
-
 	template<typename PopulationType>
 	void operator()( PopulationType & population, std::size_t mu, double dt, RealVector & lowerBounds, RealVector & upperBounds){
-		if(population.empty()) return;
+		if(population.size() == mu)return;
+		if(population.empty()) return; // I don't know why this is here!...
 		typedef std::vector< view_reference<typename PopulationType::value_type > > View;
-		while(population.size() > mu)
-		{
-			//compute fronts and ranks
-		        nonDominatedSort(penalizedFitness(population), ranks(population));
-			//detect the nearest pair of individuals..
-			std::pair<double, std::pair<int, int>> near(DBL_MAX, std::make_pair(-1, -1));
-			double adi=0.0, cont=0.0;
-		  	for(int i = 0; i < population.size(); i++)	
-			{
-			  for(int j = i+1; j< population.size(); j++)
-			  {
-				near = std::min(near, std::make_pair(norm2(population[i].searchPoint(), population[j].searchPoint(), lowerBounds, upperBounds),std::make_pair(i,j)));
-			  adi+=norm2(population[i].searchPoint(), population[j].searchPoint(), lowerBounds, upperBounds);
-				cont++;
-			  }
-			}
-//			std::cout << near.first<<" "<<dt<<" " <<adi/cont<<std::endl;
-			if(near.first>=dt)break;
-			std::pair<int,int> cp = near.second;
-			// remove the element with biggest rank  ties are broken by HV contributions in that front
-			if(population[cp.first].rank()>population[cp.second].rank())
-			{
-			   std::iter_swap(population.begin()+cp.first, population.end()-1);
-			   population.pop_back();
-			}
-			else if(population[cp.first].rank()<population[cp.second].rank())
-			{
-			   std::iter_swap(population.begin()+cp.second, population.end()-1);
-			   population.pop_back();
-			}
-			else//same rank
-			{
-			  View front;
-			  std::vector<int>idxs;
-			  for( unsigned int i = 0; i < population.size(); i++ ) 
-				if( population[cp.first].rank() == population[i].rank()) 
-				   front.push_back(population[i]), idxs.push_back(i);
-			  std::size_t frontSize = front.size();
-			  std::vector<KeyValuePair<double,std::size_t> > contrFront = m_indicator.leastContributors(penalizedFitness(front), frontSize);
-			  for(auto idx:contrFront)
-			  {
-			       if(idxs[idx.value]==cp.first)
-				{
-			   	   std::iter_swap(population.begin()+cp.first, population.end()-1);
-			      	   population.pop_back();
-				   break;
-				}
-				if(idxs[idx.value]==cp.second)
-				{
-			   	   std::iter_swap(population.begin()+cp.second, population.end()-1);
-			      	   population.pop_back();
-				   break;
-				}
-			  }
-			}
-		}
-
+		int nobj = population[0].unpenalizedFitness().size(), npops=population.size();
+	      if(dt>0)
+	      {
+		PopulationType penalized, selected, candidates=population;
+		while(selected.size() < mu && !candidates.empty())
+  	        {
+		   PopulationType all;
+		   for(auto sind:selected)all.push_back(sind);
+		   for(auto cind:candidates)all.push_back(cind);
+		   nonDominatedSort(unpenalizedFitness(all), ranks(all));
+	
+		   for(int i = 0; i < selected.size(); i++)selected[i].rank() = all[i].rank();
+		   for(int i = 0; i < candidates.size(); i++)candidates[i].rank() = all[selected.size()+i].rank();
+		  
+		   int lowestfront=npops;
+		   RealVector ref( nobj, -DBL_MAX);
+		   for(auto cind:candidates)
+		   {
+			 if(lowestfront > (int)cind.rank())
+			 {
+			    lowestfront = (int) cind.rank();
+			    for(int m = 0; m < nobj; m++)
+			      ref[m]= cind.unpenalizedFitness()[m];
+		 	 }
+			 else if(lowestfront == (int)cind.rank())
+			    for(int m = 0; m < nobj; m++) ref[m]=std::max(ref[m], cind.unpenalizedFitness()[m]);
+		   }
 		
+		   for(int m = 0; m < nobj; m++) ref[m] +=1.0;
+		   m_indicator.setReference(ref);
+		   std::pair<double, int> maxHV(-DBL_MAX, -1);
+		   PopulationType frontSelected;
+		   for(auto sind:selected) if(sind.rank()==lowestfront) frontSelected.push_back(sind); 
+
+		   for(int i = 0; i < candidates.size(); i++)
+		   {
+		       if(candidates[i].rank()!=lowestfront) continue;
+		        auto cind=candidates[i];
+			frontSelected.push_back(cind);
+		        std::vector<KeyValuePair<double,std::size_t> > contribSelec = m_indicator.leastContributors(unpenalizedFitness(frontSelected), frontSelected.size());
+		       for(auto cs:contribSelec){
+			 if(cs.value==frontSelected.size()-1) maxHV=max(maxHV, std::make_pair(cs.key, i));
+			}
+		       frontSelected.pop_back();
+		   }
+		   selected.push_back(candidates[maxHV.second]);
+		   std::iter_swap(candidates.begin()+maxHV.second, candidates.end()-1);
+		   candidates.pop_back();
+		   for(int i = candidates.size()-1; i>=0; i--)
+		   {
+		        if(norm2(selected.back().searchPoint(), candidates[i].searchPoint(), lowerBounds, upperBounds) <= dt)
+		        {
+		           penalized.push_back(candidates[i]);
+		           std::iter_swap(candidates.begin()+i, candidates.end()-1);
+		           candidates.pop_back();
+		        }
+		   }
+		} 
+		std::vector<double> dists(penalized.size(), DBL_MAX);
+		for(int i = 0; i < penalized.size(); i++)
+		  for(int j = 0; j < selected.size(); j++)
+			dists[i]=std::min(dists[i], norm2(selected[j].searchPoint(), penalized[i].searchPoint(), lowerBounds, upperBounds));
+		while(selected.size() < mu)
+		{
+		   std::pair<double, int> maxdcn(-1, -1);
+		   for(int i = 0; i < penalized.size(); i++)
+			maxdcn=max(maxdcn, std::make_pair(dists[i], i));
+		  selected.push_back(penalized[maxdcn.second]);
+		  std::iter_swap(penalized.begin()+maxdcn.second, penalized.end()-1);
+		  std::iter_swap(dists.begin()+maxdcn.second, dists.end()-1);
+		  penalized.pop_back();
+		  dists.pop_back();
+		}
+		   static long ite=0;
+		   ite++;
+		   if(ite%1000==0)std::cout<<ite<<std::endl;
+		population=selected;
+
+		   nonDominatedSort(unpenalizedFitness(population), ranks(population));
+		return;
+	      }	
 		//This is still necessary since that the binary torunament is performed
 		nonDominatedSort(penalizedFitness(population), ranks(population));
 		unsigned int maxRank = 0;
@@ -276,6 +197,13 @@ struct BNPBasedSelection {
 		for(auto lc:deselected){
 			front[lc].selected() = false;
 		}
+	       for(int i = population.size()-1; i>=0; i--)
+		if(! population[i].selected())
+		{
+		   iter_swap(population.begin()+i, population.end()-1);
+		   population.pop_back();
+		}
+
 	}
 
 

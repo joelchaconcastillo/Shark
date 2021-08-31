@@ -269,12 +269,12 @@ protected:
          //			}
          //		}
          //	}
-	       for(int i = m_parents.size()-1; i>=0; i--)
-		if(!m_parents[i].selected())
-		{
-		   iter_swap(m_parents.begin()+i, m_parents.end()-1);
-		   m_parents.pop_back();
-		}
+	//       for(int i = m_parents.size()-1; i>=0; i--)
+	//	if(!m_parents[i].selected())
+	//	{
+	//	   iter_swap(m_parents.begin()+i, m_parents.end()-1);
+	//	   m_parents.pop_back();
+	//	}
 		for(int i = 0; i < m_parents.size(); i++)
 		m_best[i].point = m_parents[i].searchPoint(),m_best[i].value = m_parents[i].unpenalizedFitness();
 
