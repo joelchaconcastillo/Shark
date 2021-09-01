@@ -151,16 +151,14 @@ struct BNPBasedSelection {
 		  penalized.pop_back();
 		  dists.pop_back();
 		}
-		//   static long ite=0;
-		//   ite++;
-		//   if(ite%1000==0)std::cout<<ite<<std::endl;
+		   static long ite=0;
+		   ite++;
+		   if(ite%1000==0)std::cout<<ite<<std::endl;
 		population=selected;
 
 		   nonDominatedSort(unpenalizedFitness(population), ranks(population));
 		return;
 	      }	
-	        RealVector ref;
-		m_indicator.setReference(ref);
 		//This is still necessary since that the binary torunament is performed
 		nonDominatedSort(penalizedFitness(population), ranks(population));
 		unsigned int maxRank = 0;

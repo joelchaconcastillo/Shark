@@ -79,7 +79,7 @@ struct BNPBasedSelection {
 		if(population.empty()) return; // I don't know why this is here!...
 		typedef std::vector< view_reference<typename PopulationType::value_type > > View;
 		int nobj = population[0].unpenalizedFitness().size(), npops=population.size();
-	      if(dt>0)
+//	      if(dt>0)
 	      {
 		PopulationType penalized, selected, candidates=population;
 		while(selected.size() < mu && !candidates.empty())
@@ -105,26 +105,25 @@ struct BNPBasedSelection {
 			 else if(lowestfront == (int)cind.rank())
 			    for(int m = 0; m < nobj; m++) ref[m]=std::max(ref[m], cind.unpenalizedFitness()[m]);
 		   }
-		
 		   for(int m = 0; m < nobj; m++) ref[m] +=1.0;
 		   m_indicator.setReference(ref);
 		   std::pair<double, int> maxHV(-DBL_MAX, -1);
+		   int idxbest=-1;
 		   PopulationType frontSelected;
-		   for(auto sind:selected) if(sind.rank()==lowestfront) frontSelected.push_back(sind); 
-
-		   for(int i = 0; i < candidates.size(); i++)
+		   int szfront1=0;
+		   for(auto sind:selected) if(sind.rank()==lowestfront) frontSelected.push_back(sind), szfront1++;
+		   for(auto cind:candidates) if(cind.rank()==lowestfront) frontSelected.push_back(cind);
+		   std::vector<KeyValuePair<double,std::size_t> > contribSelec = m_indicator.largestContributors(unpenalizedFitness(frontSelected), frontSelected.size());
+		   for(auto pp:contribSelec)
 		   {
-		       if(candidates[i].rank()!=lowestfront) continue;
-		        auto cind=candidates[i];
-			frontSelected.push_back(cind);
-		        std::vector<KeyValuePair<double,std::size_t> > contribSelec = m_indicator.leastContributors(unpenalizedFitness(frontSelected), frontSelected.size());
-		       for(auto cs:contribSelec){
-			 if(cs.value==frontSelected.size()-1) maxHV=max(maxHV, std::make_pair(cs.key, i));
+			if(pp.value >= szfront1)
+			{
+			   idxbest=pp.value-szfront1;
+			   break;
 			}
-		       frontSelected.pop_back();
 		   }
-		   selected.push_back(candidates[maxHV.second]);
-		   std::iter_swap(candidates.begin()+maxHV.second, candidates.end()-1);
+		   selected.push_back(candidates[idxbest]);
+		   std::iter_swap(candidates.begin()+idxbest, candidates.end()-1);
 		   candidates.pop_back();
 		   for(int i = candidates.size()-1; i>=0; i--)
 		   {
@@ -159,7 +158,7 @@ struct BNPBasedSelection {
 		   nonDominatedSort(unpenalizedFitness(population), ranks(population));
 		return;
 	      }	
-	        RealVector ref;
+  		RealVector ref;
 		m_indicator.setReference(ref);
 		//This is still necessary since that the binary torunament is performed
 		nonDominatedSort(penalizedFitness(population), ranks(population));
