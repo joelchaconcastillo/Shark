@@ -1,1 +1,1 @@
-/usr/bin/c++   -fopenmp -O3 -DNDEBUG    -rdynamic CMakeFiles/SharkVersion.dir/Version.cpp.o  -o ../bin/SharkVersion  ../lib/libshark.a /usr/lib/x86_64-linux-gnu/libboost_serialization.so.1.71.0 /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0 /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0 
+/usr/bin/c++   -fopenmp -O3 -DNDEBUG    -rdynamic CMakeFiles/SharkVersion.dir/Version.cpp.o  -o ../bin/SharkVersion ../lib/libshark.a -lboost_serialization -lboost_filesystem -lboost_system 

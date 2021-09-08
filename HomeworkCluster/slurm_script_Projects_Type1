@@ -9,7 +9,7 @@
 
 # Nombre del trabajo. Puede cambiarlo 
 # para identificarlo de forma más sencilla
-#SBATCH --job-name=vsdmoea
+#SBATCH --job-name=hv-sms-emoa
 
 #Numero máximo de tareas asignadas por nodo. 
 #Valor recomendado: 12 para C1, 24 para C2, 24 para GPU.
