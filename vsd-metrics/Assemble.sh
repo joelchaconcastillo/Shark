@@ -1,5 +1,5 @@
 
-PATH1=../VSD-SMS-EMOA/
+PATH1=../VSD-SMS-EMOA-V2
 
 DI=0.4;
 #for px in 0.2 0.4 0.6 0.8 1.0

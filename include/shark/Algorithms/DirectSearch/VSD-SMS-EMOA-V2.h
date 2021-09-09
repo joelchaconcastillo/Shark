@@ -40,7 +40,7 @@
 #include <shark/Algorithms/DirectSearch/Individual.h>
 #include <shark/Algorithms/DirectSearch/Operators/Indicators/HypervolumeIndicator.h>
 #include <shark/Algorithms/DirectSearch/Operators/Selection/TournamentSelection.h>
-#include <shark/Algorithms/DirectSearch/Operators/Selection/BNPBasedSelection_V2.h>
+#include <shark/Algorithms/DirectSearch/Operators/Selection/BNP1BasedSelection.h>
 #include <shark/Algorithms/DirectSearch/Operators/Recombination/SimulatedBinaryCrossover.h>
 #include <shark/Algorithms/DirectSearch/Operators/Mutation/PolynomialMutation.h>
 #include <shark/Algorithms/DirectSearch/Operators/Evaluation/PenalizingEvaluator.h>
@@ -269,12 +269,12 @@ protected:
          //			}
          //		}
          //	}
-	//       for(int i = m_parents.size()-1; i>=0; i--)
-	//	if(!m_parents[i].selected())
-	//	{
-	//	   iter_swap(m_parents.begin()+i, m_parents.end()-1);
-	//	   m_parents.pop_back();
-	//	}
+	       for(int i = m_parents.size()-1; i>=0; i--)
+		if(!m_parents[i].selected())
+		{
+		   iter_swap(m_parents.begin()+i, m_parents.end()-1);
+		   m_parents.pop_back();
+		}
 		for(int i = 0; i < m_parents.size(); i++)
 		m_best[i].point = m_parents[i].searchPoint(),m_best[i].value = m_parents[i].unpenalizedFitness();
 

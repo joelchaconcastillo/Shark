@@ -46,6 +46,8 @@ namespace random{
 	///\brief Flips a coin with probability of heads being pHeads by drawing random numbers from rng.
 	template<class RngType>
 	bool coinToss(RngType& rng, double pHeads = 0.5){
+	//	double u = (double)rand() / (double)((unsigned)RAND_MAX + 1) ;
+	//	return (u<=pHeads);
 		std::bernoulli_distribution dist(pHeads);
 		return dist(rng);
 	}
@@ -53,6 +55,9 @@ namespace random{
 	///\brief Draws a number uniformly in [lower,upper] by drawing random numbers from rng.
 	template<class RngType>
 	double uni(RngType& rng, double lower = 0.0, double upper = 1.0){
+	//	double u = (double)rand() / (double)((unsigned)RAND_MAX + 1) ;
+	//	u = lower + u*(upper-lower);
+	//	return u;
 		std::uniform_real_distribution<double> dist(lower,upper);
 		return dist(rng);
 	}
@@ -60,6 +65,7 @@ namespace random{
 	///\brief Draws a discrete number in {low,low+1,...,high} by drawing random numbers from rng.
 	template<class RngType, class T>
 	T discrete(RngType& rng, T low, T high){
+
 		std::uniform_int_distribution<T> dist(low, high);
 		return dist(rng);
 	}

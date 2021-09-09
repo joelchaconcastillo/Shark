@@ -22,15 +22,15 @@ my @Conf =(
 	"IMB8 10 2",
 	"IMB9 10 2",
 	"IMB10 10 3",
-	"BT1 30 2",
-	"BT2 30 2",
-	"BT3 30 2",
-	"BT4 30 2",
-	"BT5 30 2",
-	"BT6 30 2",
-	"BT7 30 2",
-	"BT8 30 2",
-	"BT9 30 3",
+	#	"BT1 30 2",
+	#	"BT2 30 2",
+	#	"BT3 30 2",
+	#	"BT4 30 2",
+	#	"BT5 30 2",
+	#	"BT6 30 2",
+	#	"BT7 30 2",
+	#	"BT8 30 2",
+	#	"BT9 30 3",
 	"UF1 30 2",
 	"UF2 30 2",
 	"UF3 30 2",
@@ -77,7 +77,7 @@ my @Conf =(
 #my @DD =("0.0", "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1.0");
 
 #foreach my$pc(("0.2", "0.4", "0.6", "0.8", "1.0"))
-foreach my$pc(("0.4"))
+foreach my$pc(("0.2"))
 {
       foreach my $Df(("0.5"))
       {
@@ -92,7 +92,7 @@ foreach my$pc(("0.4"))
                                  my $nvar = $configuration2[1];	
                                  my $nobj = $configuration2[2];	
          			#print $fout "~$PathAlgorithm/bin/SMS-EMOA --Instance $inst --n 100 --nfes 2500000 --nvar $nvar --Path $PathAlgorithm/SMS-EMOA --nobj $nobj --Seed $Seed --param_k 4 --Px $pc\n";
-         			print $fout "~$PathAlgorithm/bin/VSD-SMS-EMOA --Instance $inst --n 100 --nfes 2500000 --nvar $nvar --Path $PathAlgorithm/VSD-SMS-EMOA --nobj $nobj --Seed $Seed --param_k 4 --Px $pc --Di 0.4 --Df 0.5\n";
+         			print $fout "~$PathAlgorithm/bin/VSD-SMS-EMOA-V2 --Instance $inst --n 100 --nfes 2500000 --nvar $nvar --Path $PathAlgorithm/VSD-SMS-EMOA-V2 --nobj $nobj --Seed $Seed --param_k 4 --Px $pc --Di 0.4 --Df 0.5\n";
          		}
          	}
          }
