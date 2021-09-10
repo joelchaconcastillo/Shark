@@ -63,7 +63,17 @@ struct IndicatorBasedSelection {
 	template<typename PopulationType>
 	void operator()( PopulationType & population, std::size_t mu ){
 		if(population.empty()) return;
-		
+        //       int nobj = population[0].unpenalizedFitness().size();
+
+	//  	RealVector ref(nobj, 0);
+        //        for(int m = 0; m < nobj; m++) {
+        //          for(auto &cind:population){
+	//               ref[m]=std::max(ref[m], cind.unpenalizedFitness()[m]);
+        //          }
+	//	  ref[m] +=1.0;
+	//	}
+        //        m_indicator.setReference(ref);
+
 		//perform a nondominated sort to assign the rank to every element
 		nonDominatedSort(penalizedFitness(population), ranks(population));
 

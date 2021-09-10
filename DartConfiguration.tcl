@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/joel.chacon/Final_Experiment_Indicators/Shark
-BuildDirectory: /home/joel.chacon/Final_Experiment_Indicators/Shark
+SourceDirectory: /home/joel.chacon/Final_Experiment_Indicator/Shark
+BuildDirectory: /home/joel.chacon/Final_Experiment_Indicator/Shark
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: el-insurgente
+Site: n-maestro
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-c++
@@ -20,14 +20,24 @@ BuildName: Linux-c++
 LabelsForSubprojects: 
 
 # Submission information
-SubmitURL: http://my.cdash.org/submit.php?project=Shark
+IsCDash: TRUE
+CDashVersion: 
+QueryCDashVersion: 
+DropSite: my.cdash.org
+DropLocation: /submit.php?project=Shark
+DropSiteUser: 
+DropSitePassword: 
+DropSiteMode: 
+DropMethod: http
+TriggerSite: 
+ScpCommand: /usr/bin/scp
 
 # Dashboard start time
 NightlyStartTime: 01:00:00 UTC
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/local/bin/cmake" "/home/joel.chacon/Final_Experiment_Indicators/Shark"
-MakeCommand: /usr/local/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
+ConfigureCommand: "/usr/bin/cmake" "/home/joel.chacon/Final_Experiment_Indicator/Shark"
+MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 
 # version control
@@ -63,7 +73,7 @@ UpdateType: git
 
 # Compiler info
 Compiler: /usr/bin/c++
-CompilerVersion: 7.5.0
+CompilerVersion: 7.4.0
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 
@@ -71,7 +81,7 @@ ValgrindCommand:
 ValgrindCommandOptions: 
 MemoryCheckType: 
 MemoryCheckSanitizerOptions: 
-MemoryCheckCommand: MEMORYCHECK_COMMAND-NOTFOUND
+MemoryCheckCommand: /usr/bin/valgrind
 MemoryCheckCommandOptions: 
 MemoryCheckSuppressionFile: 
 
@@ -80,8 +90,8 @@ CoverageCommand: /usr/bin/gcov
 CoverageExtraFlags: -l
 
 # Cluster commands
-SlurmBatchCommand: /opt/slurm/bin/sbatch
-SlurmRunCommand: /opt/slurm/bin/srun
+SlurmBatchCommand: /usr/bin/sbatch
+SlurmRunCommand: /usr/bin/srun
 
 # Testing options
 # TimeOut is the amount of time in seconds to wait for processes

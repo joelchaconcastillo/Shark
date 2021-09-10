@@ -1,15 +1,15 @@
-if (NOT EXISTS "/home/joel.chacon/Final_Experiment_Indicators/Shark/install_manifest.txt")
-    message(FATAL_ERROR "Cannot find install manifest: \"/home/joel.chacon/Final_Experiment_Indicators/Shark/install_manifest.txt\"")
-endif(NOT EXISTS "/home/joel.chacon/Final_Experiment_Indicators/Shark/install_manifest.txt")
+if (NOT EXISTS "/home/joel.chacon/Final_Experiment_Indicator/Shark/install_manifest.txt")
+    message(FATAL_ERROR "Cannot find install manifest: \"/home/joel.chacon/Final_Experiment_Indicator/Shark/install_manifest.txt\"")
+endif(NOT EXISTS "/home/joel.chacon/Final_Experiment_Indicator/Shark/install_manifest.txt")
 
-file(READ "/home/joel.chacon/Final_Experiment_Indicators/Shark/install_manifest.txt" files)
+file(READ "/home/joel.chacon/Final_Experiment_Indicator/Shark/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 list(REVERSE files)
 foreach (file ${files})
     message(STATUS "Uninstalling \"$ENV{DESTDIR}${file}\"")
     if (EXISTS "$ENV{DESTDIR}${file}")
         execute_process(
-            COMMAND /usr/local/bin/cmake -E remove "$ENV{DESTDIR}${file}"
+            COMMAND /usr/bin/cmake -E remove "$ENV{DESTDIR}${file}"
             OUTPUT_VARIABLE rm_out
             RESULT_VARIABLE rm_retval
         )

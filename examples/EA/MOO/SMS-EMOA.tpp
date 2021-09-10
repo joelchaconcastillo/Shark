@@ -165,9 +165,9 @@ void SetConfiguration(int argc, char*argv[])
 int main( int argc, char * argv[] ) {
 
 
-	srand(run);
         omp_set_num_threads(1);
 	SetConfiguration(argc, argv);
+	srand(run);
 	
 	obj->init();
 	smsemoa.init(*obj);

@@ -40,7 +40,7 @@
 #include <shark/Algorithms/DirectSearch/Individual.h>
 #include <shark/Algorithms/DirectSearch/Operators/Indicators/HypervolumeIndicator.h>
 #include <shark/Algorithms/DirectSearch/Operators/Selection/TournamentSelection.h>
-#include <shark/Algorithms/DirectSearch/Operators/Selection/IndicatorBasedSelection.h>
+#include <shark/Algorithms/DirectSearch/Operators/Selection/IndicatorBasedSelection2.h>
 #include <shark/Algorithms/DirectSearch/Operators/Recombination/SimulatedBinaryCrossover.h>
 #include <shark/Algorithms/DirectSearch/Operators/Mutation/PolynomialMutation.h>
 #include <shark/Algorithms/DirectSearch/Operators/Evaluation/PenalizingEvaluator.h>
