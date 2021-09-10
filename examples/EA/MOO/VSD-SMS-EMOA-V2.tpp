@@ -164,11 +164,12 @@ void SetConfiguration(int argc, char*argv[])
 	    }
         vsdsmsemoa.nc()=2;//eta sbx
         vsdsmsemoa.nm()=50;//eta polynomial
+	random::globalRng.seed(run);
+	srand(run);
 }
 int main( int argc, char * argv[] ) {
 
 
-	srand(run);
         omp_set_num_threads(1);
 	SetConfiguration(argc, argv);
 	

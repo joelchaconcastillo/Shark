@@ -160,6 +160,7 @@ void SetConfiguration(int argc, char*argv[])
 	    }
         smsemoa.nc()=2;//eta sbx
         smsemoa.nm()=50;//eta polynomial
+	random::globalRng.seed(run);
 }
 int main( int argc, char * argv[] ) {
 
